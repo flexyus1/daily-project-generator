@@ -1,0 +1,7 @@
+/* Intencionalmente minimal para página em branco */
+html, body { height: 100%; }
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial; background: #0a0f1a; color: #e6e6e6; }
+.wrap { max-width: 1280px; margin: 0 auto; padding: 16px; }
+a.back { color: #c8aa6e; text-decoration: none; border: 1px solid rgba(200,170,110,.35); padding: 8px 12px; border-radius: 8px; }
+a.back:hover { background: rgba(200,170,110,.1); }
+.muted { color: #9aa4b2; }

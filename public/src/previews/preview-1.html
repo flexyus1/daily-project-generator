@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PickWise — Preview</title>
+  <meta name="description" content="Preview minimalista de sugestões de picks na champion select." />
+  <link rel="stylesheet" href="../css/preview-1.css" />
+  <style>
+    a.back{position:fixed;top:10px;left:10px;z-index:1000;color:#e7e8ea;text-decoration:none;border:1px solid rgba(200,200,200,.25);padding:8px 12px;border-radius:10px;background:rgba(255,255,255,.06)}
+    .dl-btn{padding:8px 12px;border-radius:10px;border:1px solid rgba(148,163,184,.35);background:rgba(255,255,255,.06);color:#e7e8ea}
+  </style>
+</head>
+
+<body>
+  <a class="back" href="../../../index.html">← Voltar</a>
+  <div class="wrap">
+    <header class="topbar" role="banner">
+      <div class="brand">
+        <div class="crest" aria-hidden="true">⚔️</div>
+        <h1>PickWise</h1>
+      </div>
+      <div class="phase" style="display:flex;align-items:center;gap:8px">
+        <span>Fase: Picks &amp; Bans</span>
+        <button class="dl-btn" id="dl-tech">Baixar Ficha Técnica</button>
+      </div>
+    </header>
+
+    <main class="lobby" role="main" aria-label="Tela de champion select (preview)">
+      <!-- Lado Azul -->
+      <section class="team team--blue" aria-label="Time Azul">
+        <h2 class="team-name">Azul</h2>
+
+        <div class="roles">
+          <div class="slot">
+            <span class="role">TOP</span>
+            <button class="champ empty" aria-label="Slot vazio Top">?</button>
+            <span class="player">Jogador 1</span>
+          </div>
+          <div class="slot">
+            <span class="role">JNG</span>
+            <button class="champ picked" aria-label="Vi selecionada">Vi</button>
+            <span class="player">Jogador 2</span>
+          </div>
+          <div class="slot">
+            <span class="role">MID</span>
+            <button class="champ picked" aria-label="Orianna selecionada">Ori</button>
+            <span class="player">Jogador 3</span>
+          </div>
+          <div class="slot">
+            <span class="role">ADC</span>
+            <button class="champ avoid" aria-label="Evite Kai'Sa (counterada)">Ksa</button>
+            <span class="player">Jogador 4</span>
+          </div>
+          <div class="slot">
+            <span class="role">SUP</span>
+            <button class="champ picked" aria-label="Thresh selecionado">Thr</button>
+            <span class="player">Jogador 5</span>
+          </div>
+        </div>
+
+        <div class="bans" aria-label="Bans do Azul">
+          <span class="ban-label">Bans</span>
+          <div class="ban empty" aria-label="Ban vazio">—</div>
+          <div class="ban" aria-label="Camille banida">Cam</div>
+          <div class="ban empty" aria-label="Ban vazio">—</div>
+        </div>
+      </section>
+
+      <!-- Centro: Sugestões -->
+      <aside class="panel suggestions" aria-label="Sugestões de Pick">
+        <h3>Sugestões</h3>
+        <p class="muted">Baseado nos picks/bans atuais</p>
+        <ul>
+          <li class="ok">Top: Camille</li>
+          <li class="ok">Jungle: Vi</li>
+          <li class="ok">Mid: Orianna</li>
+          <li class="danger">ADC: Evite Kai’Sa (counterado)</li>
+          <li class="ok">Suporte: Thresh</li>
+        </ul>
+        <button class="cta" type="button" aria-disabled="true" title="Apenas visual">Bloquear Escolha</button>
+      </aside>
+
+      <!-- Lado Vermelho -->
+      <section class="team team--red" aria-label="Time Vermelho">
+        <h2 class="team-name">Vermelho</h2>
+
+        <div class="roles">
+          <div class="slot">
+            <span class="role">TOP</span>
+            <button class="champ picked">Ren</button>
+            <span class="player rival">Rival 1</span>
+          </div>
+          <div class="slot">
+            <span class="role">JNG</span>
+            <button class="champ empty">?</button>
+            <span class="player rival">Rival 2</span>
+          </div>
+          <div class="slot">
+            <span class="role">MID</span>
+            <button class="champ empty">?</button>
+            <span class="player rival">Rival 3</span>
+          </div>
+          <div class="slot">
+            <span class="role">ADC</span>
+            <button class="champ picked">Cai</button>
+            <span class="player rival">Rival 4</span>
+          </div>
+          <div class="slot">
+            <span class="role">SUP</span>
+            <button class="champ empty">?</button>
+            <span class="player rival">Rival 5</span>
+          </div>
+        </div>
+
+        <div class="bans" aria-label="Bans do Vermelho">
+          <span class="ban-label">Bans</span>
+          <div class="ban" aria-label="Zed banido">Zed</div>
+          <div class="ban empty" aria-label="Ban vazio">—</div>
+          <div class="ban" aria-label="Morgana banida">Mor</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot" role="contentinfo">
+      Preview estático. Sem integração com dados do jogo.
+    </footer>
+  </div>
+  <script>
+    document.getElementById('dl-tech').addEventListener('click', ()=>{
+      const content = [
+        '# Ficha Técnica',
+        'Título: PickWise — Preview',
+        '',
+        'Descrição:',
+        'Preview estática de tela de champion select com sugestões e estados de slots.',
+        '',
+        'Como reproduzir:',
+        '- Estrutura: duas colunas de times e painel central de sugestões.',
+        '- Estilo: CSS em ../css/preview-1.css com grid e estados .picked/.avoid/.empty.',
+        '- Sem JS funcional (apenas visual nesta preview).',
+      ].join('\n');
+      const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'ficha-tecnica-pickwise-preview.txt';
+      document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href), 1000);
+    });
+  </script>
+</body>
+
+</html>

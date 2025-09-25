@@ -1,0 +1,5 @@
+node_modules/
+.env
+.env.local
+public/src/previews/.preview-2-cache.json
+public/src/previews/preview-2.html

@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "start": "node public/scripts/dev-server.mjs",
+    "preview:generate": "node public/scripts/dev-server.mjs --generate-preview2"
+  },
+  "dependencies": {
+    "mongodb": "^6.20.0",
+    "winston": "^3.17.0"
+  }
+}
