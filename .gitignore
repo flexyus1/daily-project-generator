@@ -3,3 +3,5 @@ node_modules/
 .env.local
 public/src/previews/.preview-2-cache.json
 public/src/previews/preview-2.html
+public/src/previews/preview-1.html
+AGENTS.md

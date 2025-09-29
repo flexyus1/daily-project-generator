@@ -193,18 +193,22 @@ export async function generateProjectApp(utcKey) {
 
   const system = 'Você é um gerador de miniprojetos front-end autocontidos, sem dependências externas. Responda apenas JSON.';
   const prompt = `Crie um único arquivo HTML COMPLETO (doctype, head, body) com CSS e JS inline.
-Tema: evolua os conceitos de "${preview1Title}" e "${preview2Title}" para um novo assistente útil.
+Referência central: use "${preview1Title}" como guia para a estrutura limpa e navegável, porém entregue uma identidade visual inédita (paleta, ritmo, grafismos).
+Referência complementar: "${preview2Title}" pode inspirar microinterações e animações sutis.
+
 Requisitos:
+- Visual minimalista com blocos/grids, respiros generosos e foco em elementos visuais; evite parágrafos longos.
 - Combine elementos de champion select com rotinas ou produtividade.
+- Interface compreensível em poucos segundos, textos super curtos e acionáveis.
 - Acessível (roles ARIA básicos, foco visível)
 - Sem frameworks, sem fontes externas
 - Interativo: mínimo 3 elementos com comportamento (ex.: selects, timers, checklists).
 - Botão "Reset" e link "Voltar" para '../../../index.html'.
-- Disponibilize um botão que gere ficha técnica em texto (download) descrevendo o projeto.
+- Disponibilize um botão que gere ficha técnica em texto (download) descrevendo o projeto com as instruções detalhadas.
 - Linguagem e textos em pt-BR.
 
 Direção criativa do dia: ${brief.direction}; ${brief.angle}.
-Produza algo útil, surpreendente e coerente.`;
+Produza algo útil, agradável de usar e fácil de entender.`;
 
   const messages = [
     { role: 'system', content: system },
